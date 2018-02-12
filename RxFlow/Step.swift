@@ -6,10 +6,26 @@
 //  Copyright (c) RxSwiftCommunity. All rights reserved.
 //
 
+public final class StepContext {
+
+    public var fromChildFlow: Flow?
+    var withinFlow: Flow?
+    var stepComesFromAChildFlow = false
+
+    let step: Step
+
+    init(with step: Step) {
+        self.step = step
+    }
+
+    static var none: StepContext {
+        return StepContext(with: NoneStep())
+    }
+}
+
 /// A Step describes a possible state of navigation insie a Flow
 public protocol Step {
 }
 
-/// An empty Step used internally
-struct NoStep: Step {
+struct NoneStep: Step {
 }

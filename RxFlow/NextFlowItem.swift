@@ -45,6 +45,7 @@ public enum NextFlowItems {
     case multiple (flowItems: [NextFlowItem])
     /// a Flow will trigger only one NextFlowItem for a Step
     case one (flowItem: NextFlowItem)
+    case replace (by: NextFlowItem)
     /// no further navigation will be triggered for a Step
     case none
     /// the Step matches no NextFlowItem at all
